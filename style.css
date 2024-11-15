@@ -1,0 +1,26 @@
+#cardDisplay1{
+    display: flex;
+    height: 150px;
+    width:  75px;
+}
+
+#cardDisplay2{
+    display: flex;
+    height: 150px;
+    width:  75px;
+}
+
+.cell{
+    height: 150px;
+    width: 77px;
+    margin: 15px
+}
+
+.shadow {
+    transition: box-shadow 0.001s ease, border 0.001s ease;
+}
+  
+.highlight {
+    border: 2px solid red;
+    box-shadow: 0 0 10px red; 
+}
