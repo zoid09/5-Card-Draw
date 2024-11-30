@@ -71,6 +71,14 @@ function replaceCards(hand1){
       for(let i = 0; i < graveyard.length; i++)
       drawACard(hand1)
   }
+  if (hand1.length === 0){
+    drawACard(hand1)
+    drawACard(hand1)
+    drawACard(hand1)
+    drawACard(hand1)
+    drawACard(hand1)
+  }
+  console.log("replacing cards")
 }
 
 function displayHand1(hand1) {
@@ -372,9 +380,17 @@ shuffleDeck()
 cutDeck()
 
 setInterval(function(){
+  let intervalCounterIs10 = intervalCounter === 10
+  let handLength = hand1.length < 5
+  let hand2Length = hand2.length > 0
+  /*let notCardBack = hand1[0] && hand1[0].imgURL !== "img/cardBack.png"*/
+  console.log(intervalCounterIs10, handLength)
   intervalCounter++;
   console.log(intervalCounter)
-  if(intervalCounter === 10 && hand1.length < 5 && hand1[0] && hand1[0].imgURL !== "img/cardBack.png"){
+  /*console.log(shouldReplaceHand)*/
+  console.log(hand1)
+  if(intervalCounterIs10 && handLength && hand2Length){
+    console.log("interval working")
     replaceCards(hand1)
     displayHand1(hand1)
     displayHand2ver2(hand2)
@@ -411,15 +427,3 @@ $("#cardDisplay1").on("click", "img", function() {
       resetGame()
     }
   })
-
-/*
-let doStuff = function() {
-  console.log('Hi Anonymous')
-}
-
-let add2Numbers = input => input + input
-
-
-doStuff()
-console.log(add2Numbers(5))
-*/
